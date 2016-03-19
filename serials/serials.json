@@ -1,0 +1,17 @@
+[
+	{
+		"name": "Game of thrones",
+		"img": "http://naked-science.ru/sites/default/files/game-of-thrones-28.jpg",
+		"startDate": 2011
+	},
+	{
+		"name": "Alf",
+		"img": "http://cs4.pikabu.ru/images/previews_comm/2015-03_2/14258199952601.jpg",
+		"startDate": 1986
+	},
+	{
+		"name": "the simpsons",
+		"img": "http://kinogo.co/uploads/posts/2015-10/1444733242_simpsony27.jpg",
+		"startDate": 1989
+	}
+]

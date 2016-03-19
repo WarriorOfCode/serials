@@ -1,0 +1,10 @@
+{
+	"name": "Game of thrones",
+	"sesons": [
+		14, 13, 12, 10, 13 
+	],
+	"img": "http://naked-science.ru/sites/default/files/game-of-thrones-28.jpg",
+	"startDate": 2011,
+	"endDate": 0
+
+}
