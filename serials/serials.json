@@ -1,7 +1,7 @@
 [
 	{
 		"name": "Game of thrones",
-		"img": "http://naked-science.ru/sites/default/files/game-of-thrones-28.jpg",
+		"img": "https://icdn.lenta.ru/images/2015/06/16/19/20150616190925151/pic_ca1843776cba61df4b18fa4c07f5e67b.jpg",
 		"startDate": 2011
 	},
 	{
@@ -10,7 +10,7 @@
 		"startDate": 1986
 	},
 	{
-		"name": "the simpsons",
+		"name": "The Simpsons",
 		"img": "http://kinogo.co/uploads/posts/2015-10/1444733242_simpsony27.jpg",
 		"startDate": 1989
 	}

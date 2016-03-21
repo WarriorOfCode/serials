@@ -1,0 +1,12 @@
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li ng-repeat="season in seasons track by $index" ng-class="{active: $index+1 == selected}">
+      <a href="" ng-click="select($index+1)">{{title}} {{$index+1}}</a>
+    </li>
+  </ul>
+  <div class="tab-content" ng-transclude></div>
+</div>
+<div class="tab-pane">
+  <h4>{{title}} {{selected}}</h4>
+  <div >{{seasons[selected-1]}}</div>
+</div>
