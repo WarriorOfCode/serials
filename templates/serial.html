@@ -7,8 +7,14 @@
 <h2 ng-if="serial.endDate">End: {{serial.endDate}}</h2>
 <h2 ng-if="!serial.endDate">in progress</h2>
 
-<div ng-if="seasons">
-	<serial-tabs title="season" seasons="seasons" selected="2"></serial-tabs>
+<div ng-if="serial.seasons">
+	<serial-tabs title="season" seasons="serial.seasons" selected="2" get-serias="getSerias(season)">
+		<div ng-repeat="seria in serias">
+			<h3>{{seria.name}}</h3>
+			<div>{{seria.description}}</div>
+			<div>{{seria.date}}</div>
+		</div>		
+	</serial-tabs>
 </div>
 </div>
 

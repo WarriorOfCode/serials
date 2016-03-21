@@ -1,10 +1,10 @@
 angular
 	.module('serials', ['ngRoute', 'ngResource'])
 	.factory('Serial', ['$resource', Serial])
+	.factory('Serias', ['$http', Serias])
 	.controller('SerialsListCtrl', ['$scope', '$http', 'Serial', SerialsListCtrl])
-	.controller('SerialCtrl', ['$scope', '$routeParams', '$http', SerialCtrl])
-	.directive('serialBloc', ['$document', serialBloc])
-	.directive('serialTabs', [ serialTabs])
+	.controller('SerialCtrl', ['$scope', '$routeParams', 'Serial', 'Serias', SerialCtrl])
+	.directive('serialTabs', ['Serias', serialTabs])
 	.config(['$routeProvider',
 	function($routeProvider) {
 		$routeProvider.
@@ -28,46 +28,51 @@ angular
 		});
 	};
 
+	function Serias($http){
+		return {
+			getSeasonSerias: getSeasonSerias
+		};
 
-function SerialCtrl($scope, $routeParams, $http) {
-		$http.get('serials/' + $routeParams.id + '.json')
-		.success(function(data) {
-			$scope.serial = data;
-			$scope.seasons = data.seasons;
-		});
+		function getSeasonSerias(seasonId) {
+			return $http.get('serials/'+seasonId+'season.json');
+		}
+	}
+
+function SerialCtrl($scope, $routeParams, Serial, Serias) {
+		$scope.serial = Serial.get({id: $routeParams.id});
+		$scope.getSerias = function (season) {
+			Serias.getSeasonSerias(season)
+			.success(function(data){
+				$scope.serias = data;
+			})
+		}
+
 	};
 
 function SerialsListCtrl($scope, $http, Serial) {
 	$scope.serials = Serial.query();
 }
 
-function serialBloc($document){
-	return {
-		link: function(scope, element, attrs){
-			element.css({
-				width: "250px",
-				height: "300px",
-				"margin": 20
-				});
-		}};
-};
-
-
-function serialTabs() {
+function serialTabs(Serias) {
   return {
-    restrict: 'E',
-    transclude: true,
-    scope: {
-      title: '@', seasons: '=', selected: '@'
-    },
-    link: function(scope, element, attrs, tabsCtrl) {
-      scope.select = function(active){
-      	scope.selected = active;
-
-      }
-      if (!scope.selected)
-      	scope.selected = 0;
-    },
-    templateUrl: 'templates/serial-tabs.html'
+	restrict: 'E',
+	transclude: true,
+	scope: {
+	  title: '@',
+	  seasons: '=',
+	  selected: '@',
+	  getSerias: '&getSerias'
+	},
+	link: function(scope, element, attrs, tabsCtrl) {
+	  scope.select = function(active){
+		scope.selected = active;
+		scope.getSerias({season: active});
+	  }
+	  if (!scope.selected)
+		scope.select(0)
+	  else
+		scope.select(scope.selected)
+	},
+	templateUrl: 'templates/serial-tabs.html'
   };
 };

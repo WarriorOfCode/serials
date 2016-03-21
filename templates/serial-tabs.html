@@ -4,9 +4,9 @@
       <a href="" ng-click="select($index+1)">{{title}} {{$index+1}}</a>
     </li>
   </ul>
-  <div class="tab-content" ng-transclude></div>
 </div>
 <div class="tab-pane">
-  <h4>{{title}} {{selected}}</h4>
-  <div >{{seasons[selected-1]}}</div>
+  <h3>{{title}} {{selected}}</h3>
+  <div>{{seasons[selected-1]}}</div>
+  <div ng-transclude></div>
 </div>
