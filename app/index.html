@@ -3,21 +3,22 @@
 <head>
 	<title>Serials</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></script>
-	<link rel="stylesheet" href="style.css"></script>
+	<link rel="stylesheet" href="css/style.css"></script>
 </head>
 <body>
 	<div ng-view></div>
-
-	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-	<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-resource.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
-	<script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.0.3.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.8.1/angular-translate.js"></script>
-	<script src="script.js"></script>
+	
+    <script src="app.js"></script>
+    <script src="home/controllers/SerialsListCtrl.js"></script>
+    <script src="home/services/SerialsSrv.js"></script>
+    <script src="serial/controllers/SerialCtrl.js"></script>
+    <script src="serial/directives/SerialTabs.js"></script>
+    <script src="serial/services/SerialSrv.js"></script>
 </body>
 </html>
