@@ -1,18 +1,18 @@
 angular
-	.module('serials', ['ngRoute', 'ngResource'])
-    .config(['$routeProvider', configuration]);
+	.module('serials', ['ui.router', 'ngResource'])
+    .config(['$stateProvider', '$urlRouterProvider', configuration]);
     
-function configuration($routeProvider) {
-    $routeProvider
-        .when('/', {
+function configuration($stateProvider, $urlRouterProvider) {
+    $stateProvider
+        .state('homepage', {
+        	url: '/',
             templateUrl: 'home/templates/serials-list.html',
             controller: 'SerialsListCtrl',
         })
-        .when('/serial/:id', {
+        .state( 'serial', {
+        	url: '/serial/:id',
             templateUrl: 'serial/templates/serial.html',
             controller: 'SerialCtrl',
         })
-        .otherwise({
-            redirectTo: '/'
-        });
+        $urlRouterProvider.otherwise('/');
 }
